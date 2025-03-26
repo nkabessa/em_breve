@@ -18,10 +18,17 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         h1 {
-            text-align: center;
             color: #333;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 20px;
         }
         input[type="number"] {
             width: 100%;
@@ -54,6 +61,12 @@
 </head>
 <body>
     <div class="container">
+        <div class="header">
+            <h2>M + N = X</h2>
+            <h2>M - N = Y</h2>
+            <p>Qual o valor de M e de N e como calculas?</p>
+        </div>
+
         <h1>Calculadora de M e N</h1>
         <form onsubmit="calcular(event)">
             <label for="valor1">Digite o valor de M + N:</label>
