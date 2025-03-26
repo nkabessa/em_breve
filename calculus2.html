@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora M e N</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            background-color: #e7ffe7;
+            padding: 10px;
+            border: 1px solid #b7ffb7;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de M e N</h1>
+        <form onsubmit="calcular(event)">
+            <label for="valor1">Digite o valor de M + N:</label>
+            <input type="number" id="valor1" step="any" required>
+
+            <label for="valor2">Digite o valor de M - N:</label>
+            <input type="number" id="valor2" step="any" required>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        function calcular(event) {
+            event.preventDefault(); // Evita o recarregamento da página
+
+            // Obtém os valores do formulário
+            const valor1 = parseFloat(document.getElementById("valor1").value);
+            const valor2 = parseFloat(document.getElementById("valor2").value);
+
+            // Calcula M e N
+            const M = (valor1 + valor2) / 2;
+            const N = (valor1 - valor2) / 2;
+
+            // Exibe os resultados e os cálculos passo a passo
+            const resultDiv = document.getElementById("result");
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = `
+                <h2>Resultado:</h2>
+                <p>M = ${M}</p>
+                <p>N = ${N}</p>
+                <h3>Cálculos passo a passo:</h3>
+                <ul>
+                    <li>1. Somamos as duas equações: (M + N) + (M - N) = ${valor1} + ${valor2}</li>
+                    <li>Isso resulta em: 2M = ${valor1 + valor2}</li>
+                    <li>Logo, M = (${valor1 + valor2}) / 2 = ${M}</li>
+                    <li>2. Substituímos M na primeira equação para encontrar N: ${M} + N = ${valor1}</li>
+                    <li>N = ${valor1} - ${M} = ${N}</li>
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>
