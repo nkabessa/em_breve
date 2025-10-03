@@ -56,7 +56,7 @@ $(window).load(function(){
 
 
 $('#countdown').countdown({
-    date: "May 13, 2025 12:00:00",  // Data alterada para 13 de Maio de 2025
+    date: "May 13, 2026 12:00:00",  // Data alterada para 13 de Maio de 2026
     render: function(data) {
       var el = $(this.el);
       el.empty()
